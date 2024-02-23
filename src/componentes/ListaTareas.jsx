@@ -4,8 +4,8 @@ import ItemTarea from "./ItemTarea";
 const ListaTareas = ({ tareas }) => {
   return (
     <ListGroup>
-      {tareas.map(() => (
-        <ItemTarea></ItemTarea>
+      {tareas.map((elementoTarea,posicionTarea) => (
+        <ItemTarea  key={posicionTarea} nombreTarea={elementoTarea}></ItemTarea>
       ))}
     </ListGroup>
   );
