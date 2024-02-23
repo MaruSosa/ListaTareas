@@ -5,6 +5,7 @@ import { useState } from "react";
 import ListaTareas from "./ListaTareas";
 const FormularioTareas = () => {
   const [tarea, setTarea] = useState("");
+  const [tareas, setTareas]=useState([]);
   return (
     <section>
       <Form>
