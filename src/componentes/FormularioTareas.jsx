@@ -1,11 +1,15 @@
-// import Form from 'react-bootstrap/Form';
-// import Button from 'react-bootstrap/Button';
 import { Button, Form } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react"; //useState es un huk 
 import ListaTareas from "./ListaTareas";
 const FormularioTareas = () => {
   const [tarea, setTarea] = useState("");
-  const [tareas, setTareas]=useState([]);
+  const tareasLocalStorage = JSON.parse(localStorage.getItem('listaTareas')) || []
+  const [tareas, setTareas]=useState(tareasLocalStorage);
+
+  useEffect(()=>{
+    console.log('aqui deberia guardar localstorage');
+    localStorage.setItem('listaTareas',JSON.stringify(tareas));
+  },[tareas])
 
   const handleSubmit=(e)=>{
     e.preventDefault();
